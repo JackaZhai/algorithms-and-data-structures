@@ -1,50 +1,50 @@
-//ѭ�����������������㷨
+//循环单链表基本运算算法
 #include <stdio.h>
 #include <malloc.h>
 typedef int ElemType;
-typedef struct LNode		//���嵥�����������
+typedef struct LNode		//定义单链表结点类型
 {
 	ElemType data;
     struct LNode *next;
 } LinkNode;
 void CreateListF(LinkNode *&L,ElemType a[],int n)
-//ͷ�巨����ѭ��������
+//头插法建立循环单链表
 {
 	LinkNode *s;int i;
-	L=(LinkNode *)malloc(sizeof(LinkNode));  	//����ͷ���
+	L=(LinkNode *)malloc(sizeof(LinkNode));  	//创建头结点
 	L->next=NULL;
 	for (i=0;i<n;i++)
 	{	
-		s=(LinkNode *)malloc(sizeof(LinkNode));//�����½��
+		s=(LinkNode *)malloc(sizeof(LinkNode));//创建新结点
 		s->data=a[i];
-		s->next=L->next;			//�����s����ԭ��ʼ���֮ǰ,ͷ���֮��
+		s->next=L->next;			//将结点s插在原开始结点之前,头结点之后
 		L->next=s;
 	}
 	s=L->next;	
-	while (s->next!=NULL)			//����β���,��sָ����
+	while (s->next!=NULL)			//查找尾结点,由s指向它
 		s=s->next;
-	s->next=L;						//β���next��ָ��ͷ���
+	s->next=L;						//尾结点next域指向头结点
 
 }
 void CreateListR(LinkNode *&L,ElemType a[],int n)
-//β�巨����ѭ��������
+//尾插法建立循环单链表
 {
 	LinkNode *s,*r;int i;
-	L=(LinkNode *)malloc(sizeof(LinkNode));  	//����ͷ���
+	L=(LinkNode *)malloc(sizeof(LinkNode));  	//创建头结点
 	L->next=NULL;
-	r=L;					//rʼ��ָ���ն˽��,��ʼʱָ��ͷ���
+	r=L;					//r始终指向终端结点,开始时指向头结点
 	for (i=0;i<n;i++)
 	{	
-		s=(LinkNode *)malloc(sizeof(LinkNode));//�����½��
+		s=(LinkNode *)malloc(sizeof(LinkNode));//创建新结点
 		s->data=a[i];
-		r->next=s;			//�����s������r֮��
+		r->next=s;			//将结点s插入结点r之后
 		r=s;
 	}
-	r->next=L;				//β���next��ָ��ͷ���
+	r->next=L;				//尾结点next域指向头结点
 }
 void InitList(LinkNode *&L)
 {
-	L=(LinkNode *)malloc(sizeof(LinkNode));	//����ͷ���
+	L=(LinkNode *)malloc(sizeof(LinkNode));	//创建头结点
 	L->next=L;
 }
 void DestroyList(LinkNode *&L)
@@ -86,14 +86,14 @@ bool GetElem(LinkNode *L,int i,ElemType &e)
 {
 	int j=0;
 	LinkNode *p;
-	if (L->next!=L)		//��������Ϊ�ձ�ʱ
+	if (L->next!=L)		//单链表不为空表时
 	{
 		if (i==1)
 		{
 			e=L->next->data;
 			return true;
 		}
-		else			//i��Ϊ1ʱ
+		else			//i不为1时
 		{
 			p=L->next;
 			while (j<i-1 && p!=L)
@@ -110,7 +110,7 @@ bool GetElem(LinkNode *L,int i,ElemType &e)
 			}
 		}
 	}
-	else				//������Ϊ�ձ�ʱ
+	else				//单链表为空表时
 		return false;
 }
 int LocateElem(LinkNode *L,ElemType e)
@@ -131,11 +131,11 @@ bool ListInsert(LinkNode *&L,int i,ElemType e)
 {
 	int j=0;
 	LinkNode *p=L,*s;
-	if (p->next==L || i==1)		//ԭ������Ϊ�ձ���i==1ʱ
+	if (p->next==L || i==1)		//原单链表为空表或i==1时
 	{
-		s=(LinkNode *)malloc(sizeof(LinkNode));	//�����½��s
+		s=(LinkNode *)malloc(sizeof(LinkNode));	//创建新结点s
 		s->data=e;								
-		s->next=p->next;		//�����s���뵽���p֮��
+		s->next=p->next;		//将结点s插入到结点p之后
 		p->next=s;
 		return true;
 	}
@@ -147,13 +147,13 @@ bool ListInsert(LinkNode *&L,int i,ElemType e)
 			j++;
 			p=p->next;
 		}
-		if (p==L)				//δ�ҵ���i-1�����
+		if (p==L)				//未找到第i-1个结点
 			return false;
-		else					//�ҵ���i-1�����p
+		else					//找到第i-1个结点p
 		{
-			s=(LinkNode *)malloc(sizeof(LinkNode));	//�����½��s
+			s=(LinkNode *)malloc(sizeof(LinkNode));	//创建新结点s
 			s->data=e;								
-			s->next=p->next;						//�����s���뵽���p֮��
+			s->next=p->next;						//将结点s插入到结点p之后
 			p->next=s;
 			return true;
 		}
@@ -163,17 +163,17 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
 {
 	int j=0;
 	LinkNode *p=L,*q;
-	if (p->next!=L)					//ԭ��������Ϊ�ձ�ʱ
+	if (p->next!=L)					//原单链表不为空表时
 	{
-		if (i==1)					//i==1ʱ
+		if (i==1)					//i==1时
 		{
-			q=L->next;				//ɾ����1�����
+			q=L->next;				//删除第1个结点
 			e=q->data;
 			L->next=q->next;
 			free(q);
 			return true;
 		}
-		else						//i��Ϊ1ʱ
+		else						//i不为1时
 		{
 			p=L->next;
 			while (j<i-2 && p!=L)
@@ -181,14 +181,14 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
 				j++;
 				p=p->next;
 			}
-			if (p==L)				//δ�ҵ���i-1�����
+			if (p==L)				//未找到第i-1个结点
 				return false;
-			else					//�ҵ���i-1�����p
+			else					//找到第i-1个结点p
 			{
-				q=p->next;			//qָ��Ҫɾ���Ľ��
+				q=p->next;			//q指向要删除的结点
 				e=q->data;
-				p->next=q->next;	//�ӵ�������ɾ��q���
-				free(q);			//�ͷ�q���
+				p->next=q->next;	//从单链表中删除q结点
+				free(q);			//释放q结点
 				return true;
 			}
 		}

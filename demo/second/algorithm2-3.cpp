@@ -1,28 +1,28 @@
-//¡¾Àı2.3¡¿µÄËã·¨:ÔÚË³Ğò±íLÖĞÉ¾³ıËùÓĞÖµÎªxµÄÔªËØ
+//ã€ä¾‹2.3ã€‘çš„ç®—æ³•:åœ¨é¡ºåºè¡¨Lä¸­åˆ é™¤æ‰€æœ‰å€¼ä¸ºxçš„å…ƒç´ 
 #include "sqlist.cpp"
 void delnode1(SqList *&L,ElemType x)
 {
-	int k=0,i;  //k¼ÇÂ¼Öµ²»µÈÓÚxµÄÔªËØ¸öÊı
+	int k=0,i;  //kè®°å½•å€¼ä¸ç­‰äºxçš„å…ƒç´ ä¸ªæ•°
 	for  (i=0;i<L->length;i++) 
 		if (L->data[i]!=x)
 		{
 			L->data[k]=L->data[i];
-			k++;    //²»µÈÓÚxµÄÔªËØÔö1
+			k++;    //ä¸ç­‰äºxçš„å…ƒç´ å¢1
 		}
-	L->length=k;  //Ë³Ğò±íLµÄ³¤¶ÈµÈÓÚk
+	L->length=k;  //é¡ºåºè¡¨Lçš„é•¿åº¦ç­‰äºk
 }
 void delnode2(SqList *&L,ElemType x)
 { 
-	int k=0,i=0; //k¼ÇÂ¼ÖµµÈÓÚxµÄÔªËØ¸öÊı
+	int k=0,i=0; //kè®°å½•å€¼ç­‰äºxçš„å…ƒç´ ä¸ªæ•°
 	while (i<L->length) 
 	{
 		if (L->data[i]==x) 
 			k++;
 		else 
-			L->data[i-k]=L->data[i]; //µ±Ç°ÔªËØÇ°ÒÆk¸öÎ»ÖÃ
+			L->data[i-k]=L->data[i]; //å½“å‰å…ƒç´ å‰ç§»kä¸ªä½ç½®
 		i++;
 	}
-	L->length-=k;	//Ë³Ğò±íLµÄ³¤¶Èµİ¼õk
+	L->length-=k;	//é¡ºåºè¡¨Lçš„é•¿åº¦é€’å‡k
 }
 
 int main()
@@ -32,7 +32,7 @@ int main()
 	SqList *L;
 	CreateList(L,a,10);
 	printf("L:");DispList(L);
-	printf("É¾³ıÖµÎª%dµÄÔªËØ\n",x);
+	printf("åˆ é™¤å€¼ä¸º%dçš„å…ƒç´ \n",x);
 	delnode2(L,x);
 	printf("L:");DispList(L);
 	DestroyList(L);

@@ -1,39 +1,39 @@
-//¡¾Àý2.14¡¿µÄËã·¨£¬¶þÂ·¹é²¢:²ÉÓÃµ¥Á´±íÊµÏÖ
+//ã€ä¾‹2.14ã€‘çš„ç®—æ³•ï¼ŒäºŒè·¯å½’å¹¶:é‡‡ç”¨å•é“¾è¡¨å®žçŽ°
 #include "linklist.cpp"
 void UnionList1(LinkNode *LA,LinkNode *LB,LinkNode *&LC)
 {
 	LinkNode *pa=LA->next,*pb=LB->next,*pc,*s;
-	LC=(LinkNode *)malloc(sizeof(LinkNode));		//´´½¨LCµÄÍ·½áµã
-	pc=LC;							//pcÊ¼ÖÕÖ¸ÏòLCµÄ×îºóÒ»¸ö½áµã
+	LC=(LinkNode *)malloc(sizeof(LinkNode));		//åˆ›å»ºLCçš„å¤´ç»“ç‚¹
+	pc=LC;							//pcå§‹ç»ˆæŒ‡å‘LCçš„æœ€åŽä¸€ä¸ªç»“ç‚¹
 	while (pa!=NULL && pb!=NULL)
 	{	
 		if (pa->data<pb->data)
 		{	
-			s=(LinkNode *)malloc(sizeof(LinkNode));//¸´ÖÆpa½áµã
+			s=(LinkNode *)malloc(sizeof(LinkNode));//å¤åˆ¶paç»“ç‚¹
 			s->data=pa->data;
-			pc->next=s;pc=s;		//²ÉÓÃÎ²²å·¨½«½áµãs²åÈëµ½LCµÄ×îºó
+			pc->next=s;pc=s;		//é‡‡ç”¨å°¾æ’æ³•å°†ç»“ç‚¹sæ’å…¥åˆ°LCçš„æœ€åŽ
 			pa=pa->next;
 		} 
 		else
 		{	
-			s=(LinkNode *)malloc(sizeof(LinkNode));//¸´ÖÆpb½áµã
+			s=(LinkNode *)malloc(sizeof(LinkNode));//å¤åˆ¶pbç»“ç‚¹
 			s->data=pb->data;
-			pc->next=s;pc=s;		//²ÉÓÃÎ²²å·¨½«½áµãs²åÈëµ½LCµÄ×îºó
+			pc->next=s;pc=s;		//é‡‡ç”¨å°¾æ’æ³•å°†ç»“ç‚¹sæ’å…¥åˆ°LCçš„æœ€åŽ
 			pb=pb->next;
 		}
 	}
 	while (pa!=NULL)
 	{	
-		s=(LinkNode *)malloc(sizeof(LinkNode));	//¸´ÖÆpa½áµã
+		s=(LinkNode *)malloc(sizeof(LinkNode));	//å¤åˆ¶paç»“ç‚¹
 		s->data=pa->data;
-		pc->next=s;pc=s;		//²ÉÓÃÎ²²å·¨½«½áµãs²åÈëµ½LCµÄ×îºó
+		pc->next=s;pc=s;		//é‡‡ç”¨å°¾æ’æ³•å°†ç»“ç‚¹sæ’å…¥åˆ°LCçš„æœ€åŽ
 		pa=pa->next;
 	}
 	while (pb!=NULL)
 	{	
-		s=(LinkNode *)malloc(sizeof(LinkNode));	//¸´ÖÆpa½áµã
+		s=(LinkNode *)malloc(sizeof(LinkNode));	//å¤åˆ¶paç»“ç‚¹
 		s->data=pb->data;
-		pc->next=s;pc=s;		//²ÉÓÃÎ²²å·¨½«½áµãs²åÈëµ½LCµÄ×îºó
+		pc->next=s;pc=s;		//é‡‡ç”¨å°¾æ’æ³•å°†ç»“ç‚¹sæ’å…¥åˆ°LCçš„æœ€åŽ
 		pb=pb->next;
 	}
 	pc->next=NULL;
@@ -47,7 +47,7 @@ int main()
 	printf("L1:");DispList(L1);
 	CreateListR(L2,b,4);
 	printf("L2:");DispList(L2);
-	printf("¹é²¢\n");
+	printf("å½’å¹¶\n");
 	UnionList1(L1,L2,L3);
 	printf("L3:");DispList(L3);
 	DestroyList(L1);

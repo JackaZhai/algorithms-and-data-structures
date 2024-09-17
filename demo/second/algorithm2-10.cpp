@@ -1,21 +1,21 @@
-//¡¾Àı2.10¡¿µÄËã·¨:Ë«Á´±íµİÔöÅÅĞò
+//ã€ä¾‹2.10ã€‘çš„ç®—æ³•:åŒé“¾è¡¨é€’å¢æ’åº
 #include "dlinklist.cpp"
 void sort(DLinkNode *&L)	
 {	
 	DLinkNode *p,*pre,*q;
-	p=L->next->next;		//pÖ¸ÏòLµÄµÚ2¸öÊı¾İ½áµã
-	L->next->next=NULL;		//¹¹ÔìÖ»º¬Ò»¸öÊı¾İ½áµãµÄÓĞĞò±í
+	p=L->next->next;		//pæŒ‡å‘Lçš„ç¬¬2ä¸ªæ•°æ®ç»“ç‚¹
+	L->next->next=NULL;		//æ„é€ åªå«ä¸€ä¸ªæ•°æ®ç»“ç‚¹çš„æœ‰åºè¡¨
 	while (p!=NULL)
-	{	q=p->next;			//q±£´æp½áµãºó¼Ì½áµãµÄÖ¸Õë
-		pre=L;				//´ÓÓĞĞò±í¿ªÍ·½øĞĞ±È½Ï,preÖ¸Ïòp½áµãµÄÇ°Çı½áµã
+	{	q=p->next;			//qä¿å­˜pç»“ç‚¹åç»§ç»“ç‚¹çš„æŒ‡é’ˆ
+		pre=L;				//ä»æœ‰åºè¡¨å¼€å¤´è¿›è¡Œæ¯”è¾ƒ,preæŒ‡å‘pç»“ç‚¹çš„å‰é©±ç»“ç‚¹
 		while (pre->next!=NULL && pre->next->data<p->data)
-			pre=pre->next;	//ÔÚÓĞĞò±íÖĞÕÒ²åÈëp½áµãµÄÇ°Çı½áµãpre
-		p->next=pre->next;	//ÔÚpre½áµãÖ®ºó²åÈëµ½p½áµã
+			pre=pre->next;	//åœ¨æœ‰åºè¡¨ä¸­æ‰¾æ’å…¥pç»“ç‚¹çš„å‰é©±ç»“ç‚¹pre
+		p->next=pre->next;	//åœ¨preç»“ç‚¹ä¹‹åæ’å…¥åˆ°pç»“ç‚¹
 		if (pre->next!=NULL)
 			pre->next->prior=p;
 		pre->next=p;
 		p->prior=pre;
-		p=q;				//É¨ÃèÔ­Ë«Á´±íÓàÏÂµÄ½áµã
+		p=q;				//æ‰«æåŸåŒé“¾è¡¨ä½™ä¸‹çš„ç»“ç‚¹
 	}
 }
 
@@ -25,7 +25,7 @@ int main()
 	DLinkNode *L;
 	CreateListR(L,a,10);
 	printf("L:");DispList(L);
-	printf("ÅÅĞò\n");
+	printf("æ’åº\n");
 	sort(L);
 	printf("L:");DispList(L);
 	DestroyList(L);

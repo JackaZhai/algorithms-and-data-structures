@@ -1,30 +1,30 @@
-//¡¾Àı2.15¡¿µÄËã·¨:Çó3¸öÓĞĞòµ¥Á´±íµÄ¹«¹²½áµã
+//ã€ä¾‹2.15ã€‘çš„ç®—æ³•:æ±‚3ä¸ªæœ‰åºå•é“¾è¡¨çš„å…¬å…±ç»“ç‚¹
 #include "linklist.cpp"
 void Commnode(LinkNode *&LA,LinkNode *LB,LinkNode *LC)
 {
 	LinkNode *pa=LA->next,*pb=LB->next,*pc=LC->next,*q,*r;
-	LA->next=NULL;  		//´ËÊ±LA×÷ÎªĞÂ½¨µ¥Á´±íµÄÍ·½áµã
-	r=LA;					//rÊ¼ÖÕÖ¸ÏòĞÂµ¥Á´±í×îºóÒ»¸ö½áµã
-	while (pa!=NULL)		//²éÕÒ¾ù°üº¬µÄ¹«¹²½áµã²¢½¨Á¢ĞÂÁ´±í
+	LA->next=NULL;  		//æ­¤æ—¶LAä½œä¸ºæ–°å»ºå•é“¾è¡¨çš„å¤´ç»“ç‚¹
+	r=LA;					//rå§‹ç»ˆæŒ‡å‘æ–°å•é“¾è¡¨æœ€åä¸€ä¸ªç»“ç‚¹
+	while (pa!=NULL)		//æŸ¥æ‰¾å‡åŒ…å«çš„å…¬å…±ç»“ç‚¹å¹¶å»ºç«‹æ–°é“¾è¡¨
 	{	
-		while (pb!=NULL && pa->data>pb->data) //paËùÖ¸½áµãÓëLBÖĞ½áµã½øĞĞ±È½Ï
+		while (pb!=NULL && pa->data>pb->data) //paæ‰€æŒ‡ç»“ç‚¹ä¸LBä¸­ç»“ç‚¹è¿›è¡Œæ¯”è¾ƒ
 			pb=pb->next;
-		while (pc!=NULL && pa->data>pc->data) //paËùÖ¸½áµãÓëLCÖĞ½áµã½øĞĞ±È½Ï
+		while (pc!=NULL && pa->data>pc->data) //paæ‰€æŒ‡ç»“ç‚¹ä¸LCä¸­ç»“ç‚¹è¿›è¡Œæ¯”è¾ƒ
 			pc=pc->next;
-		if (pb!=NULL && pc!=NULL && pa->data==pb->data && pa->data==pc->data) //paËùÖ¸½áµãÊÇ¹«¹²½áµã
+		if (pb!=NULL && pc!=NULL && pa->data==pb->data && pa->data==pc->data) //paæ‰€æŒ‡ç»“ç‚¹æ˜¯å…¬å…±ç»“ç‚¹
 		{	
-			r->next=pa;			//½«*pa½áµã²åÈëµ½LAÖĞ
+			r->next=pa;			//å°†*paç»“ç‚¹æ’å…¥åˆ°LAä¸­
 			r=pa;		
-			pa=pa->next;		//paÒÆµ½ÏÂÒ»¸ö½áµã
+			pa=pa->next;		//paç§»åˆ°ä¸‹ä¸€ä¸ªç»“ç‚¹
 		}
-		else               		//paËùÖ¸½áµã²»ÊÇ¹«¹²½áµã,ÔòÉ¾³ıÖ®
+		else               		//paæ‰€æŒ‡ç»“ç‚¹ä¸æ˜¯å…¬å…±ç»“ç‚¹,åˆ™åˆ é™¤ä¹‹
 		{	
 			q=pa;
-			pa=pa->next;		//paÒÆµ½ÏÂÒ»¸ö½áµã
-			free(q);			//ÊÍ·Å·Ç¹«¹²½áµã
+			pa=pa->next;		//paç§»åˆ°ä¸‹ä¸€ä¸ªç»“ç‚¹
+			free(q);			//é‡Šæ”¾éå…¬å…±ç»“ç‚¹
 		}
 	}
-	r->next=NULL;			//½«ĞÂ½¨µ¥Á´±íÎ²½áµãµÄnextÓòÖÃ¿Õ
+	r->next=NULL;			//å°†æ–°å»ºå•é“¾è¡¨å°¾ç»“ç‚¹çš„nextåŸŸç½®ç©º
 }
 int main()
 {
@@ -38,7 +38,7 @@ int main()
 	printf("L2:");DispList(L2);
 	CreateListR(L3,c,5);
 	printf("L3:");DispList(L3);
-	printf("ÌáÈ¡¹«¹²ÔªËØ\n");
+	printf("æå–å…¬å…±å…ƒç´ \n");
 	Commnode(L1,L2,L3);
 	printf("L1:");DispList(L1);
 	DestroyList(L1);

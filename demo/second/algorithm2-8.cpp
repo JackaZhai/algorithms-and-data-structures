@@ -1,17 +1,17 @@
-//¡¾Àı2.8¡¿µÄËã·¨:µ¥Á´±íLµİÔöÅÅĞò
+//ã€ä¾‹2.8ã€‘çš„ç®—æ³•:å•é“¾è¡¨Lé€’å¢æ’åº
 #include "linklist.cpp"
 void sort(LinkNode *&L)
 {	LinkNode *p,*pre,*q;
-	p=L->next->next;		//pÖ¸ÏòLµÄµÚ2¸öÊı¾İ½áµã
-	L->next->next=NULL;		//¹¹ÔìÖ»º¬Ò»¸öÊı¾İ½áµãµÄÓĞĞò±í
+	p=L->next->next;		//pæŒ‡å‘Lçš„ç¬¬2ä¸ªæ•°æ®ç»“ç‚¹
+	L->next->next=NULL;		//æ„é€ åªå«ä¸€ä¸ªæ•°æ®ç»“ç‚¹çš„æœ‰åºè¡¨
 	while (p!=NULL)
-	{	q=p->next;			//q±£´æp½áµãºó¼Ì½áµãµÄÖ¸Õë
-		pre=L;				//´ÓÓĞĞò±í¿ªÍ·½øĞĞ±È½Ï,preÖ¸Ïòp½áµãµÄÇ°Çı½áµã
+	{	q=p->next;			//qä¿å­˜pç»“ç‚¹åç»§ç»“ç‚¹çš„æŒ‡é’ˆ
+		pre=L;				//ä»æœ‰åºè¡¨å¼€å¤´è¿›è¡Œæ¯”è¾ƒ,preæŒ‡å‘pç»“ç‚¹çš„å‰é©±ç»“ç‚¹
 		while (pre->next!=NULL && pre->next->data<p->data)
-			pre=pre->next;	//ÔÚÓĞĞò±íÖĞÕÒ²åÈëp½áµãµÄÇ°Çı½áµãpre
-		p->next=pre->next;	//ÔÚpre½áµãÖ®ºó²åÈëp½áµã
+			pre=pre->next;	//åœ¨æœ‰åºè¡¨ä¸­æ‰¾æ’å…¥pç»“ç‚¹çš„å‰é©±ç»“ç‚¹pre
+		p->next=pre->next;	//åœ¨preç»“ç‚¹ä¹‹åæ’å…¥pç»“ç‚¹
 		pre->next=p;
-		p=q;				//É¨ÃèÔ­µ¥Á´±íÓàÏÂµÄ½áµã
+		p=q;				//æ‰«æåŸå•é“¾è¡¨ä½™ä¸‹çš„ç»“ç‚¹
 	}
 }
 int main()
@@ -21,7 +21,7 @@ int main()
 	ElemType a[]={1,3,2,9,0,4,7,6,5,8};
 	CreateListR(L,a,n);
 	printf("L:");DispList(L);
-	printf("ÅÅĞò\n");
+	printf("æ’åº\n");
 	sort(L);
 	printf("L:");DispList(L);
 	DestroyList(L);

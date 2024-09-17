@@ -1,19 +1,19 @@
-//¡¾Àý2.7¡¿µÄËã·¨:É¾³ýµ¥Á´±íLÖÐ×î´óÔªËØµÄ½áµã
+//ã€ä¾‹2.7ã€‘çš„ç®—æ³•:åˆ é™¤å•é“¾è¡¨Lä¸­æœ€å¤§å…ƒç´ çš„ç»“ç‚¹
 #include "linklist.cpp"
 void delmaxnode(LinkNode *&L)
 {
 	LinkNode *p=L->next,*pre=L,*maxp=p,*maxpre=pre;
-	while (p!=NULL)					//ÓÃpÉ¨ÃèÕû¸öµ¥Á´±í,preÊ¼ÖÕÖ¸ÏòÆäÇ°Çý½áµã
+	while (p!=NULL)					//ç”¨pæ‰«ææ•´ä¸ªå•é“¾è¡¨,preå§‹ç»ˆæŒ‡å‘å…¶å‰é©±ç»“ç‚¹
 	{
-		if (maxp->data<p->data)		//ÈôÕÒµ½Ò»¸ö¸ü´óµÄ½áµã
-		{	maxp=p;					//¸ü¸Ämaxp
-			maxpre=pre;				//¸ü¸Ämaxpre
+		if (maxp->data<p->data)		//è‹¥æ‰¾åˆ°ä¸€ä¸ªæ›´å¤§çš„ç»“ç‚¹
+		{	maxp=p;					//æ›´æ”¹maxp
+			maxpre=pre;				//æ›´æ”¹maxpre
 		}
-		pre=p;						//p¡¢preÍ¬²½ºóÒÆÒ»¸ö½áµã
+		pre=p;						//pã€preåŒæ­¥åŽç§»ä¸€ä¸ªç»“ç‚¹
 		p=p->next;
 	}
-	maxpre->next=maxp->next;		//É¾³ýmaxp½áµã
-	free(maxp);						//ÊÍ·Åmaxp½áµã
+	maxpre->next=maxp->next;		//åˆ é™¤maxpç»“ç‚¹
+	free(maxp);						//é‡Šæ”¾maxpç»“ç‚¹
 }
 int main()
 {
@@ -22,7 +22,7 @@ int main()
 	ElemType a[]={1,3,2,9,0,4,7,6,5,8};
 	CreateListR(L,a,n);
 	printf("L:");DispList(L);
-	printf("É¾³ý×î´óÖµ½áµã\n");
+	printf("åˆ é™¤æœ€å¤§å€¼ç»“ç‚¹\n");
 	delmaxnode(L);
 	printf("L:");DispList(L);
 	DestroyList(L);

@@ -1,17 +1,17 @@
-//¡¾Àı2.17¡¿µÄËã·¨£ºÇóÁ½¸öµÈ³¤µÄÓĞĞòË³Ğò±íµÄÖĞÎ»Êı¡£
+//ã€ä¾‹2.17ã€‘çš„ç®—æ³•ï¼šæ±‚ä¸¤ä¸ªç­‰é•¿çš„æœ‰åºé¡ºåºè¡¨çš„ä¸­ä½æ•°ã€‚
 #include "sqlist.cpp"
-ElemType M_Search(SqList *A, SqList *B)	//A¡¢BµÄ³¤¶ÈÏàÍ¬
+ElemType M_Search(SqList *A, SqList *B)	//Aã€Bçš„é•¿åº¦ç›¸åŒ
 {	int i=0, j=0, k=0;
-	while (i<A->length && j<B->length)	//Á½¸öĞòÁĞ¾ùÃ»ÓĞÉ¨ÃèÍê
-	{	k++;							//µ±Ç°¹é²¢µÄÔªËØ¸öÊıÔö1
-		if (A->data[i]<B->data[j])		//¹é²¢½ÏĞ¡µÄÔªËØA->data[i]
-		{	if (k==A->length)			//Èôµ±Ç°¹é²¢µÄÔªËØÊÇµÚn¸öÔªËØ
-				return A->data[i];		//·µ»ØA->data[i]
+	while (i<A->length && j<B->length)	//ä¸¤ä¸ªåºåˆ—å‡æ²¡æœ‰æ‰«æå®Œ
+	{	k++;							//å½“å‰å½’å¹¶çš„å…ƒç´ ä¸ªæ•°å¢1
+		if (A->data[i]<B->data[j])		//å½’å¹¶è¾ƒå°çš„å…ƒç´ A->data[i]
+		{	if (k==A->length)			//è‹¥å½“å‰å½’å¹¶çš„å…ƒç´ æ˜¯ç¬¬nä¸ªå…ƒç´ 
+				return A->data[i];		//è¿”å›A->data[i]
 			i++;
 		}
-		else							//¹é²¢½ÏĞ¡µÄÔªËØB->data[j]
-		{	if (k==B->length)			//Èôµ±Ç°¹é²¢µÄÔªËØÊÇµÚn¸öÔªËØ
-				return B->data[j];		//·µ»ØB->data[j]
+		else							//å½’å¹¶è¾ƒå°çš„å…ƒç´ B->data[j]
+		{	if (k==B->length)			//è‹¥å½“å‰å½’å¹¶çš„å…ƒç´ æ˜¯ç¬¬nä¸ªå…ƒç´ 
+				return B->data[j];		//è¿”å›B->data[j]
 			j++; 
 		}
 	}
@@ -27,7 +27,7 @@ int main()
 	CreateList(L2,b,n);
 	printf("L1:"); DispList(L1);
 	printf("L2:"); DispList(L2);
-	printf("L1,L2µÄÖĞÎ»Êı:%d\n",M_Search(L1,L2));
+	printf("L1,L2çš„ä¸­ä½æ•°:%d\n",M_Search(L1,L2));
 	DestroyList(L1);
 	DestroyList(L2);
 	return 1;

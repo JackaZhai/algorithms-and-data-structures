@@ -1,8 +1,8 @@
-////¡¾Àı2.14¡¿µÄËã·¨£¬¶şÂ·¹é²¢:²ÉÓÃË³Ğò±íÊµÏÖ
+////ã€ä¾‹2.14ã€‘çš„ç®—æ³•ï¼ŒäºŒè·¯å½’å¹¶:é‡‡ç”¨é¡ºåºè¡¨å®ç°
 #include "sqlist.cpp"
 void UnionList(SqList *LA,SqList *LB,SqList *&LC)
 {
-	int i=0,j=0,k=0;	//i¡¢j¡¢k·Ö±ğ×÷ÎªLA¡¢LB¡¢LCµÄÏÂ±ê
+	int i=0,j=0,k=0;	//iã€jã€kåˆ†åˆ«ä½œä¸ºLAã€LBã€LCçš„ä¸‹æ ‡
 	LC=(SqList *)malloc(sizeof(SqList));
 	LC->length=0;
 	while (i<LA->length && j<LB->length)
@@ -18,12 +18,12 @@ void UnionList(SqList *LA,SqList *LB,SqList *&LC)
 			j++;k++;
 		}
 	}
-	while (i<LA->length)	//LAÉĞÎ´É¨ÃèÍê,½«ÆäÓàÔªËØ²åÈëLCÖĞ
+	while (i<LA->length)	//LAå°šæœªæ‰«æå®Œ,å°†å…¶ä½™å…ƒç´ æ’å…¥LCä¸­
 	{	
 		LC->data[k]=LA->data[i];
 		i++;k++;
 	}
-	while (j<LB->length)  //LBÉĞÎ´É¨ÃèÍê,½«ÆäÓàÔªËØ²åÈëLCÖĞ
+	while (j<LB->length)  //LBå°šæœªæ‰«æå®Œ,å°†å…¶ä½™å…ƒç´ æ’å…¥LCä¸­
 	{	
 		LC->data[k]=LB->data[j];
 		j++;k++;
@@ -39,7 +39,7 @@ int main()
 	printf("L1:");DispList(L1);
 	CreateList(L2,b,4);
 	printf("L2:");DispList(L2);
-	printf("¹é²¢\n");
+	printf("å½’å¹¶\n");
 	UnionList(L1,L2,L3);
 	printf("L3:");DispList(L3);
 	DestroyList(L1);

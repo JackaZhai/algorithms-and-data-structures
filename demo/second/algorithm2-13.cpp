@@ -1,16 +1,16 @@
-//¡¾Àı2.13¡¿µÄËã·¨:ÅĞ¶ÏÑ­»·Ë«Á´±íLÖĞµÄÊı¾İ½áµãÊÇ·ñ¶Ô³Æ¡£
+//ã€ä¾‹2.13ã€‘çš„ç®—æ³•:åˆ¤æ–­å¾ªç¯åŒé“¾è¡¨Lä¸­çš„æ•°æ®ç»“ç‚¹æ˜¯å¦å¯¹ç§°ã€‚
 #include "cdlinklist.cpp"
 bool Symm(DLinkNode *L)
-{	bool same=true;			//same±íÊ¾LÊÇ·ñ¶Ô³Æ£¬³õÊ¼Ê±ÎªÕæ
-	DLinkNode *p=L->next;	//pÖ¸ÏòÊ×½áµã
-	DLinkNode *q=L->prior;	//qÖ¸ÏòÎ²½áµã
+{	bool same=true;			//sameè¡¨ç¤ºLæ˜¯å¦å¯¹ç§°ï¼Œåˆå§‹æ—¶ä¸ºçœŸ
+	DLinkNode *p=L->next;	//pæŒ‡å‘é¦–ç»“ç‚¹
+	DLinkNode *q=L->prior;	//qæŒ‡å‘å°¾ç»“ç‚¹
 	while (same)
-	{	if (p->data!=q->data) //¶ÔÓ¦½áµãÖµ²»ÏàÍ¬£¬ÍË³öÑ­»·
+	{	if (p->data!=q->data) //å¯¹åº”ç»“ç‚¹å€¼ä¸ç›¸åŒï¼Œé€€å‡ºå¾ªç¯
 			same=false;
 		else
 		{	if (p==q || p==q->prior) break;
-			q=q->prior;		//qÇ°ÒÆÒ»¸ö½áµã 
-			p=p->next;		//pºóÒÆÒ»¸ö½áµã
+			q=q->prior;		//qå‰ç§»ä¸€ä¸ªç»“ç‚¹ 
+			p=p->next;		//påç§»ä¸€ä¸ªç»“ç‚¹
 		}
 	} 
 	return same;
@@ -24,9 +24,9 @@ int main()
 	CreateListR(L,a,n);
 	printf("L:");DispList(L);
 	if (Symm(L))
-		printf("LÊÇ¶Ô³ÆµÄ\n");
+		printf("Læ˜¯å¯¹ç§°çš„\n");
 	else
-		printf("LÊÇ²»¶Ô³ÆµÄ\n");
+		printf("Læ˜¯ä¸å¯¹ç§°çš„\n");
 	DestroyList(L);
 	return 1;
 }

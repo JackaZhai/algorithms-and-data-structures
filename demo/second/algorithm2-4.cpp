@@ -1,33 +1,33 @@
-//¡¾Àı2.4¡¿µÄËã·¨:½«ÕûÊıË³Ğò±íLÒÔµÚÒ»¸öÔªËØÎª·Ö½çÏß£¨»ù×¼£©½øĞĞ»®·Ö
+//ã€ä¾‹2.4ã€‘çš„ç®—æ³•:å°†æ•´æ•°é¡ºåºè¡¨Lä»¥ç¬¬ä¸€ä¸ªå…ƒç´ ä¸ºåˆ†ç•Œçº¿ï¼ˆåŸºå‡†ï¼‰è¿›è¡Œåˆ’åˆ†
 #include "sqlist.cpp"  
-void swap(int &x,int &y)				//½»»»xºÍy
+void swap(int &x,int &y)				//äº¤æ¢xå’Œy
 {	int tmp=x;
 	x=y; y=tmp;
 }
 void move1(SqList *&L)
 {	int i=0,j=L->length-1;
-	ElemType base=L->data[0];			//ÒÔdata[0]Îª»ù×¼
-	while (i<j)						//´ÓÇø¼äÁ½¶Ë½»ÌæÏòÖĞ¼äÉ¨Ãè,Ö±ÖÁi=jÎªÖ¹
+	ElemType base=L->data[0];			//ä»¥data[0]ä¸ºåŸºå‡†
+	while (i<j)						//ä»åŒºé—´ä¸¤ç«¯äº¤æ›¿å‘ä¸­é—´æ‰«æ,ç›´è‡³i=jä¸ºæ­¢
 	{	while (i<j && L->data[j]>base)
-			j--;						//´ÓÓÒÏò×óÉ¨Ãè,ÕÒÒ»¸öĞ¡ÓÚµÈÓÚbaseµÄÔªËØ
+			j--;						//ä»å³å‘å·¦æ‰«æ,æ‰¾ä¸€ä¸ªå°äºç­‰äºbaseçš„å…ƒç´ 
 		while (i<j && L->data[i]<=base)
-			i++;						//´Ó×óÏòÓÒÉ¨Ãè,ÕÒÒ»¸ö´óÓÚbaseµÄÔªËØ
+			i++;						//ä»å·¦å‘å³æ‰«æ,æ‰¾ä¸€ä¸ªå¤§äºbaseçš„å…ƒç´ 
 		if (i<j)
-			swap(L->data[i],L->data[j]);//½«L->data[i]ºÍL->data[j]½øĞĞ½»»»
+			swap(L->data[i],L->data[j]);//å°†L->data[i]å’ŒL->data[j]è¿›è¡Œäº¤æ¢
 	}
-	swap(L->data[0],L->data[i]);		//½«L->data[0]ºÍL->data[i]½øĞĞ½»»»
+	swap(L->data[0],L->data[i]);		//å°†L->data[0]å’ŒL->data[i]è¿›è¡Œäº¤æ¢
 }
 
 void move2(SqList *&L)
 {	int i=0,j=L->length-1;
-	ElemType base=L->data[0];	//ÒÔdata[0]Îª»ù×¼
-	while (i<j)  				//´ÓË³Ğò±íÁ½¶Ë½»ÌæÏòÖĞ¼äÉ¨Ãè,Ö±ÖÁi=jÎªÖ¹
+	ElemType base=L->data[0];	//ä»¥data[0]ä¸ºåŸºå‡†
+	while (i<j)  				//ä»é¡ºåºè¡¨ä¸¤ç«¯äº¤æ›¿å‘ä¸­é—´æ‰«æ,ç›´è‡³i=jä¸ºæ­¢
 	{	while (j>i && L->data[j]>base)
-			j--;				//´ÓÓÒÏò×óÉ¨Ãè,ÕÒÒ»¸öĞ¡ÓÚµÈÓÚbaseµÄdata[j]
-		L->data[i]=L->data[j];	//ÕÒµ½ÕâÑùµÄdata[j],·ÅÈëdata[i]´¦
+			j--;				//ä»å³å‘å·¦æ‰«æ,æ‰¾ä¸€ä¸ªå°äºç­‰äºbaseçš„data[j]
+		L->data[i]=L->data[j];	//æ‰¾åˆ°è¿™æ ·çš„data[j],æ”¾å…¥data[i]å¤„
 		while (i<j && L->data[i]<=base)
-			i++;				//´Ó×óÏòÓÒÉ¨Ãè,ÕÒÒ»¸ö´óÓÚbaseµÄ¼ÇÂ¼data[i]
-		L->data[j]=L->data[i];	//ÕÒµ½ÕâÑùµÄdata[i],·ÅÈëdata[j]´¦
+			i++;				//ä»å·¦å‘å³æ‰«æ,æ‰¾ä¸€ä¸ªå¤§äºbaseçš„è®°å½•data[i]
+		L->data[j]=L->data[i];	//æ‰¾åˆ°è¿™æ ·çš„data[i],æ”¾å…¥data[j]å¤„
 	}
 	L->data[i]=base;
 	printf("i=%d\n",i);
@@ -39,7 +39,7 @@ int main()
 	ElemType a[]={1,9,8,7,6};
 	CreateList(L,a,5);
 	printf("L:");DispList(L);
-	printf("Ö´ĞĞÒÆ¶¯ÔËËã\n");
+	printf("æ‰§è¡Œç§»åŠ¨è¿ç®—\n");
 	move1(L);
 	printf("L:");DispList(L);
 	DestroyList(L);

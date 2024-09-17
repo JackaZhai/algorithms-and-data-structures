@@ -1,47 +1,47 @@
-//Ë«Á´±í»ù±¾ÔËËãËã·¨
+//åŒé“¾è¡¨åŸºæœ¬è¿ç®—ç®—æ³•
 #include <stdio.h>
 #include <malloc.h>
 typedef int ElemType;
-typedef struct DNode		//¶¨ÒåË«Á´±í½áµãÀàĞÍ
+typedef struct DNode		//å®šä¹‰åŒé“¾è¡¨ç»“ç‚¹ç±»å‹
 {
 	ElemType data;
-	struct DNode *prior;	//Ö¸ÏòÇ°Çı½áµã
-	struct DNode *next;		//Ö¸Ïòºó¼Ì½áµã
+	struct DNode *prior;	//æŒ‡å‘å‰é©±ç»“ç‚¹
+	struct DNode *next;		//æŒ‡å‘åç»§ç»“ç‚¹
 } DLinkNode;
 void CreateListF(DLinkNode *&L,ElemType a[],int n)
-//Í·²å·¨½¨Ë«Á´±í
+//å¤´æ’æ³•å»ºåŒé“¾è¡¨
 {
 	DLinkNode *s;
-	L=(DLinkNode *)malloc(sizeof(DLinkNode));  	//´´½¨Í·½áµã
+	L=(DLinkNode *)malloc(sizeof(DLinkNode));  	//åˆ›å»ºå¤´ç»“ç‚¹
 	L->prior=L->next=NULL;
 	for (int i=0;i<n;i++)
 	{	
-		s=(DLinkNode *)malloc(sizeof(DLinkNode));//´´½¨ĞÂ½áµã
+		s=(DLinkNode *)malloc(sizeof(DLinkNode));//åˆ›å»ºæ–°ç»“ç‚¹
 		s->data=a[i];
-		s->next=L->next;			//½«½áµãs²åÔÚÔ­¿ªÊ¼½áµãÖ®Ç°,Í·½áµãÖ®ºó
+		s->next=L->next;			//å°†ç»“ç‚¹sæ’åœ¨åŸå¼€å§‹ç»“ç‚¹ä¹‹å‰,å¤´ç»“ç‚¹ä¹‹å
 		if (L->next!=NULL) L->next->prior=s;
 		L->next=s;s->prior=L;
 	}
 }
 void CreateListR(DLinkNode *&L,ElemType a[],int n)
-//Î²²å·¨½¨Ë«Á´±í
+//å°¾æ’æ³•å»ºåŒé“¾è¡¨
 {
 	DLinkNode *s,*r;
-	L=(DLinkNode *)malloc(sizeof(DLinkNode));  	//´´½¨Í·½áµã
+	L=(DLinkNode *)malloc(sizeof(DLinkNode));  	//åˆ›å»ºå¤´ç»“ç‚¹
 	L->prior=L->next=NULL;
-	r=L;					//rÊ¼ÖÕÖ¸ÏòÖÕ¶Ë½áµã,¿ªÊ¼Ê±Ö¸ÏòÍ·½áµã
+	r=L;					//rå§‹ç»ˆæŒ‡å‘ç»ˆç«¯ç»“ç‚¹,å¼€å§‹æ—¶æŒ‡å‘å¤´ç»“ç‚¹
 	for (int i=0;i<n;i++)
 	{	
-		s=(DLinkNode *)malloc(sizeof(DLinkNode));//´´½¨ĞÂ½áµã
+		s=(DLinkNode *)malloc(sizeof(DLinkNode));//åˆ›å»ºæ–°ç»“ç‚¹
 		s->data=a[i];
-		r->next=s;s->prior=r;	//½«½áµãs²åÈë½áµãrÖ®ºó
+		r->next=s;s->prior=r;	//å°†ç»“ç‚¹sæ’å…¥ç»“ç‚¹rä¹‹å
 		r=s;
 	}
-	r->next=NULL;				//Î²½áµãnextÓòÖÃÎªNULL
+	r->next=NULL;				//å°¾ç»“ç‚¹nextåŸŸç½®ä¸ºNULL
 }
 void InitList(DLinkNode *&L)
 {
-	L=(DLinkNode *)malloc(sizeof(DLinkNode));  	//´´½¨Í·½áµã
+	L=(DLinkNode *)malloc(sizeof(DLinkNode));  	//åˆ›å»ºå¤´ç»“ç‚¹
 	L->prior=L->next=NULL;
 }
 void DestroyList(DLinkNode *&L)
@@ -84,7 +84,7 @@ bool GetElem(DLinkNode *L,int i,ElemType &e)
 {
 	int j=0;
 	DLinkNode *p=L;
-	if (i<=0) return false;		//i´íÎó·µ»Ø¼Ù
+	if (i<=0) return false;		//ié”™è¯¯è¿”å›å‡
 	while (j<i && p!=NULL)
 	{
 		j++;
@@ -116,19 +116,19 @@ bool ListInsert(DLinkNode *&L,int i,ElemType e)
 {
 	int j=0;
 	DLinkNode *p=L,*s;
-	if (i<=0) return false;		//i´íÎó·µ»Ø¼Ù
+	if (i<=0) return false;		//ié”™è¯¯è¿”å›å‡
 	while (j<i-1 && p!=NULL)
 	{
 		j++;
 		p=p->next;
 	}
-	if (p==NULL)				//Î´ÕÒµ½µÚi-1¸ö½áµã
+	if (p==NULL)				//æœªæ‰¾åˆ°ç¬¬i-1ä¸ªç»“ç‚¹
 		return false;
-	else						//ÕÒµ½µÚi-1¸ö½áµãp
+	else						//æ‰¾åˆ°ç¬¬i-1ä¸ªç»“ç‚¹p
 	{
-		s=(DLinkNode *)malloc(sizeof(DLinkNode));	//´´½¨ĞÂ½áµãs
+		s=(DLinkNode *)malloc(sizeof(DLinkNode));	//åˆ›å»ºæ–°ç»“ç‚¹s
 		s->data=e;	
-		s->next=p->next;		//½«½áµãs²åÈëµ½½áµãpÖ®ºó
+		s->next=p->next;		//å°†ç»“ç‚¹sæ’å…¥åˆ°ç»“ç‚¹pä¹‹å
 		if (p->next!=NULL) 
 			p->next->prior=s;
 		s->prior=p;
@@ -140,23 +140,23 @@ bool ListDelete(DLinkNode *&L,int i,ElemType &e)
 {
 	int j=0;
 	DLinkNode *p=L,*q;
-	if (i<=0) return false;		//i´íÎó·µ»Ø¼Ù
+	if (i<=0) return false;		//ié”™è¯¯è¿”å›å‡
 	while (j<i-1 && p!=NULL)
 	{
 		j++;
 		p=p->next;
 	}
-	if (p==NULL)				//Î´ÕÒµ½µÚi-1¸ö½áµã
+	if (p==NULL)				//æœªæ‰¾åˆ°ç¬¬i-1ä¸ªç»“ç‚¹
 		return false;
-	else						//ÕÒµ½µÚi-1¸ö½áµãp
+	else						//æ‰¾åˆ°ç¬¬i-1ä¸ªç»“ç‚¹p
 	{
-		q=p->next;				//qÖ¸ÏòÒªÉ¾³ıµÄ½áµã
+		q=p->next;				//qæŒ‡å‘è¦åˆ é™¤çš„ç»“ç‚¹
 		if (q==NULL) 
-			return false;		//²»´æÔÚµÚi¸ö½áµã
+			return false;		//ä¸å­˜åœ¨ç¬¬iä¸ªç»“ç‚¹
 		e=q->data;
-		p->next=q->next;		//´Óµ¥Á´±íÖĞÉ¾³ı*q½áµã
+		p->next=q->next;		//ä»å•é“¾è¡¨ä¸­åˆ é™¤*qç»“ç‚¹
 		if (p->next!=NULL) p->next->prior=p;
-		free(q);				//ÊÍ·Åq½áµã
+		free(q);				//é‡Šæ”¾qç»“ç‚¹
 		return true;
 	}
 }

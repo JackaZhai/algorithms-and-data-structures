@@ -1,17 +1,17 @@
-#include "linklist.cpp"			//°üÀ¨µ¥Á´±í»ù±¾ÔËËãËã·¨
+#include "linklist.cpp"			//åŒ…æ‹¬å•é“¾è¡¨åŸºæœ¬è¿ç®—ç®—æ³•
 
 void Sort(LinkNode* h)
 {
 	if(h->next==NULL || h->next->next==NULL) 
-		return;								//¿Õ±í»òÕßÖ»ÓĞÒ»¸ö½áµãÊ±·µ»Ø 
+		return;								//ç©ºè¡¨æˆ–è€…åªæœ‰ä¸€ä¸ªç»“ç‚¹æ—¶è¿”å› 
 	LinkNode *p,*minp,*q;
 	int minv;
 	p=h->next;
-	while (p!=NULL)							//ÓÃÖ¸Õëp±éÀúhµÄËùÓĞ½áµã 
+	while (p!=NULL)							//ç”¨æŒ‡é’ˆpéå†hçš„æ‰€æœ‰ç»“ç‚¹ 
 	{
 		minv=p->data;
 		minp=p;
-		for(q=p->next;q!=NULL;q=q->next)	//´Ó½áµãp¿ªÊ¼ÕÒµ½×îĞ¡ÖµµÄ½áµãminp 
+		for(q=p->next;q!=NULL;q=q->next)	//ä»ç»“ç‚¹på¼€å§‹æ‰¾åˆ°æœ€å°å€¼çš„ç»“ç‚¹minp 
 			if(q->data<minv)
 			{
 				minp=q;
@@ -19,7 +19,7 @@ void Sort(LinkNode* h)
 			}
 		if (minp!=p)
 		{
-			int tmp=p->data;				//½»»»½áµãpºÍminpµÄ½áµãÖµ 
+			int tmp=p->data;				//äº¤æ¢ç»“ç‚¹på’Œminpçš„ç»“ç‚¹å€¼ 
 			p->data=minp->data;
 			minp->data=tmp;
 		}

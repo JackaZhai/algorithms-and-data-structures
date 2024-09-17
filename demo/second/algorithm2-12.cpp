@@ -1,13 +1,13 @@
-//¡¾Àı2.12¡¿µÄËã·¨:ÔÚÑ­»·Ë«Á´±íLÖĞÉ¾³ıµÚÒ»¸öÖµÎªxµÄ½áµã¡£
+//ã€ä¾‹2.12ã€‘çš„ç®—æ³•:åœ¨å¾ªç¯åŒé“¾è¡¨Lä¸­åˆ é™¤ç¬¬ä¸€ä¸ªå€¼ä¸ºxçš„ç»“ç‚¹ã€‚
 #include "cdlinklist.cpp"
 bool delelem(DLinkNode *&L,ElemType x)
 {
 	DLinkNode *p=L->next; 
 	while (p!=L && p->data!=x)
 		p=p->next;
-	if (p!=L)						//ÕÒµ½µÚÒ»¸öÔªËØÖµÎªxµÄ½áµã
+	if (p!=L)						//æ‰¾åˆ°ç¬¬ä¸€ä¸ªå…ƒç´ å€¼ä¸ºxçš„ç»“ç‚¹
 	{
-		p->next->prior=p->prior;	//É¾³ı½áµã*p
+		p->next->prior=p->prior;	//åˆ é™¤ç»“ç‚¹*p
 		p->prior->next=p->next;
 		free(p);
 		return true;
@@ -22,13 +22,13 @@ int main()
 	DLinkNode *L;
 	CreateListR(L,a,10);
 	printf("L:");DispList(L);
-	printf("É¾³ıµÚÒ»¸ö½áµãÖµÎª%dµÄ½áµã\n",x);
+	printf("åˆ é™¤ç¬¬ä¸€ä¸ªç»“ç‚¹å€¼ä¸º%dçš„ç»“ç‚¹\n",x);
 	if (delelem(L,x))
 	{
 		printf("L:");DispList(L);
 	}
 	else
-		printf("Ñ­»·Ë«Á´±íLÖĞ²»´æÔÚÔªËØÖµÎª%dµÄ½áµã\n",x);
+		printf("å¾ªç¯åŒé“¾è¡¨Lä¸­ä¸å­˜åœ¨å…ƒç´ å€¼ä¸º%dçš„ç»“ç‚¹\n",x);
 	DestroyList(L);
 	return 1;
 }

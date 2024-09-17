@@ -1,9 +1,9 @@
-//¡¾Àý2.11¡¿µÄËã·¨:Í³¼ÆÑ­»·µ¥Á´±íLÖÐÖµÎªxµÄ½áµã¸öÊý¡£
+//ã€ä¾‹2.11ã€‘çš„ç®—æ³•:ç»Ÿè®¡å¾ªçŽ¯å•é“¾è¡¨Lä¸­å€¼ä¸ºxçš„ç»“ç‚¹ä¸ªæ•°ã€‚
 #include "clinklist.cpp"
 int count(LinkNode *L,ElemType x)
 {
 	int n=0;
-	LinkNode *p=L->next;	//Ö¸ÏòµÚ1¸öÊý¾Ý½áµã
+	LinkNode *p=L->next;	//æŒ‡å‘ç¬¬1ä¸ªæ•°æ®ç»“ç‚¹
 	while (p!=L)
 	{	
 		if (p->data==x) n++;
@@ -18,7 +18,7 @@ int main()
 	LinkNode *L;
 	CreateListR(L,a,10);
 	printf("L:");DispList(L);
-	printf("½áµãÖµÎª%dµÄ½áµã¸öÊý:%d\n",x,count(L,x));
+	printf("ç»“ç‚¹å€¼ä¸º%dçš„ç»“ç‚¹ä¸ªæ•°:%d\n",x,count(L,x));
 	DestroyList(L);
 	return 1;
 }

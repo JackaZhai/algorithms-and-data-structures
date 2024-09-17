@@ -1,14 +1,14 @@
-//Ë³Ğò±í»ù±¾ÔËËãËã·¨
+//é¡ºåºè¡¨åŸºæœ¬è¿ç®—ç®—æ³•
 #include <stdio.h>
 #include <malloc.h>
 #define MaxSize 50
 typedef int ElemType; 
 typedef struct 
-{	ElemType data[MaxSize];		//´æ·ÅË³Ğò±íÔªËØ
-   	int length;					//´æ·ÅË³Ğò±íµÄ³¤¶È
-} SqList;						//Ë³Ğò±íµÄÀàĞÍ
+{	ElemType data[MaxSize];		//å­˜æ”¾é¡ºåºè¡¨å…ƒç´ 
+   	int length;					//å­˜æ”¾é¡ºåºè¡¨çš„é•¿åº¦
+} SqList;						//é¡ºåºè¡¨çš„ç±»å‹
 void CreateList(SqList *&L,ElemType a[],int n)
-//½¨Á¢Ë³Ğò±í
+//å»ºç«‹é¡ºåºè¡¨
 {
 	L=(SqList *)malloc(sizeof(SqList));
 	for (int i=0;i<n;i++)
@@ -17,7 +17,7 @@ void CreateList(SqList *&L,ElemType a[],int n)
 }
 void InitList(SqList *&L)
 {
-	L=(SqList *)malloc(sizeof(SqList));	//·ÖÅä´æ·ÅÏßĞÔ±íµÄ¿Õ¼ä
+	L=(SqList *)malloc(sizeof(SqList));	//åˆ†é…å­˜æ”¾çº¿æ€§è¡¨çš„ç©ºé—´
 	L->length=0;
 }
 void DestroyList(SqList *&L)
@@ -59,11 +59,11 @@ bool ListInsert(SqList *&L,int i,ElemType e)
 	int j;
 	if (i<1 || i>L->length+1 || L->length==MaxSize)
 		return false;
-	i--;						//½«Ë³Ğò±íÎ»Ğò×ª»¯ÎªelemÏÂ±ê
-	for (j=L->length;j>i;j--) 	//½«data[i]¼°ºóÃæÔªËØºóÒÆÒ»¸öÎ»ÖÃ
+	i--;						//å°†é¡ºåºè¡¨ä½åºè½¬åŒ–ä¸ºelemä¸‹æ ‡
+	for (j=L->length;j>i;j--) 	//å°†data[i]åŠåé¢å…ƒç´ åç§»ä¸€ä¸ªä½ç½®
 		L->data[j]=L->data[j-1];
 	L->data[i]=e;
-	L->length++;				//Ë³Ğò±í³¤¶ÈÔö1
+	L->length++;				//é¡ºåºè¡¨é•¿åº¦å¢1
 	return true;
 }
 bool ListDelete(SqList *&L,int i,ElemType &e)
@@ -71,10 +71,10 @@ bool ListDelete(SqList *&L,int i,ElemType &e)
 	int j;
 	if (i<1 || i>L->length)
 		return false;
-	i--;						//½«Ë³Ğò±íÎ»Ğò×ª»¯ÎªelemÏÂ±ê
+	i--;						//å°†é¡ºåºè¡¨ä½åºè½¬åŒ–ä¸ºelemä¸‹æ ‡
 	e=L->data[i];
-	for (j=i;j<L->length-1;j++)	//½«data[i]Ö®ºóµÄÔªËØÇ°ÒÆÒ»¸öÎ»ÖÃ
+	for (j=i;j<L->length-1;j++)	//å°†data[i]ä¹‹åçš„å…ƒç´ å‰ç§»ä¸€ä¸ªä½ç½®
 		L->data[j]=L->data[j+1];
-	L->length--;				//Ë³Ğò±í³¤¶È¼õ1
+	L->length--;				//é¡ºåºè¡¨é•¿åº¦å‡1
 	return true;
 }
