@@ -1,19 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-#include <ctime> // 包含 time 函数
-using namespace std;
-
-int randomAccess(int *nums, int size);
-void traverse(int *nums, int size);
-int main() {
-    srand(time(0)); // 设置随机数种子
-    //time 函数用于获取当前的时间。它返回自1970年1月1日00:00:00 UTC以来经过的秒数。通常用于生成随机数种子，以确保每次运行程序时生成不同的随机数序列。
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    // 随机访问元素
-    int randomNum = randomAccess(nums, 5);
-    cout << "随机访问的元素是：" << randomNum << endl;
-    return 0;
-}
 
 /* 随机访问元素 */
 int randomAccess(int *nums, int size) {
