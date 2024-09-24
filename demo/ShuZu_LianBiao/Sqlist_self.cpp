@@ -59,7 +59,7 @@ void DispList(SqList *L)
 }
 
 //求线性表中的某个元素值
-//在顺序表L中查找第i个元素
+//在顺序表L中查找第i个元素，e 的作用是作为一个容器，用于存储和返回在顺序表中查找到的元素值。
 bool GetElem(SqList *L,int i,ElemType &e)
 {
     if(i<1||i>L->length)
@@ -125,3 +125,36 @@ bool ListDelete(SqList *&L,int i,ElemType &e)
     return true;
 }
 
+void CreatList(SqList *&L,ElemType a[],int n);
+void InitList(SqList *&L);
+void DestoryList(SqList *&L);
+bool ListEmpty(SqList *L);
+int ListLength(SqList *L);
+void DispList(SqList *L);
+bool GetElem(SqList *L,int i,ElemType &e);
+int LocateElem(SqList *L,ElemType e);
+bool ListInsert(SqList *&L,int i,ElemType e);
+bool ListDelete(SqList *&L,int i,ElemType &e);
+
+int main()
+{
+    SqList *L;
+    ElemType a[]={1,2,3,4,5,6,7,8,9};
+    CreatList(L,a,9);
+    printf("线性表L中的元素：");
+    DispList(L);
+    printf("线性表L的长度：%d\n",ListLength(L));
+    printf("线性表L是否为空表：%d\n",ListEmpty(L));
+    ElemType e;
+    GetElem(L,4,e);
+    printf("线性表L的第4个元素：%d\n",e);
+    printf("元素5的位置：%d\n",LocateElem(L,5));
+    ListInsert(L,4,10);
+    printf("在L的第4个位置插入元素10后，线性表L中的元素：");
+    DispList(L);
+    ListDelete(L,4,e);
+    printf("删除L的第4个元素%d后，线性表L中的元素：",e);
+    DispList(L);
+    DestoryList(L);
+    return 0;
+}
